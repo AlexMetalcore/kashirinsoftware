@@ -10,5 +10,4 @@ class AWSSource extends ActiveRecord {
     {
         return 'life_aws_sources';
     }
-
 }
