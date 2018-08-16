@@ -65,24 +65,5 @@ class AWS extends Component {
         } catch (S3Exception $e) {
             return $e->getMessage() . PHP_EOL;
         }
-    }
-
-    /*Добавление данных в базу*/
-    protected function insertDataBucket($name , $root , $region){
-
-        $model = new AWSSource();
-        try {
-            $model->name = $name;
-            $model->region = $region;
-            $model->root =  $root;
-            $arrs = $model::find()->where(['root' => $model->root])->exists();
-            if($arrs){
-                return false;
-            }else {
-                return $model->save();
-            }
-        }catch (S3Exception $e) {
-            return $e->getMessage() . PHP_EOL;
-        }
-    }
+    }   
 }
